@@ -31,9 +31,7 @@ A comprehensive Product Management system featuring JWT authentication, Redis ca
   - [🔧 Development](#-development)
   - [📊 Performance Features](#-performance-features)
   - [🛡️ Security](#️-security)
-  - [🤝 Contributing](#-contributing)
-  - [📄 License](#-license)
-  - [👨‍💻 Author](#-author)
+
 
 ## ✨ Features
 
