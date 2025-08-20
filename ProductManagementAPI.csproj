@@ -6,4 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="ProductManagement.Application\Interfaces\" />
+    <Folder Include="ProductManagement.Infrastructure\Cache\" />
+    <Folder Include="ProductManagement.Infrastructure\Data\" />
+    <Folder Include="ProductManagement.Infrastructure\Identity\" />
+    <Folder Include="ProductManagement.Infrastructure\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+  </ItemGroup>
+
 </Project>

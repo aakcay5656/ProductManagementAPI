@@ -1,5 +1,4 @@
 ﻿
-
 using ProductManagement.Core.Enums;
 
 namespace ProductManagement.Core.Entities
@@ -10,6 +9,10 @@ namespace ProductManagement.Core.Entities
         public string Password { get; set; } = string.Empty;
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
+        public bool IsActive { get; set; } = true;
+
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public UserRole Role { get; set; } = UserRole.User;
 
 
