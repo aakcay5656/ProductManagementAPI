@@ -1,6 +1,5 @@
-﻿namespace ProductManagement.Application;
+﻿using System;
+using System.Security.Cryptography;
 
-public class Class1
-{
-
-}
+var key = Convert.ToBase64String(RandomNumberGenerator.GetBytes(48));
+Console.WriteLine(key);
