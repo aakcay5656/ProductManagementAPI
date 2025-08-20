@@ -96,11 +96,10 @@ This project follows **Clean Architecture** (Onion Architecture) principles:
 
 ```
 ProductManagementAPI/
-├── 📂 src/
 │   ├── 📂 ProductManagement.API/          # 🌐 Presentation Layer
 │   │   ├── Controllers/                   # API Controllers
-│   │   ├── Middleware/                    # Custom middleware
-│   │   └── Program.cs                     # Application entry point
+│   │   └── Middleware/                    # Custom middleware
+│   │   
 │   │
 │   ├── 📂 ProductManagement.Application/  # 📋 Application Layer
 │   │   ├── DTOs/                         # Data Transfer Objects
