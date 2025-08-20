@@ -11,10 +11,12 @@
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.8" />
   </ItemGroup>
 
-  <PropertyGroup>
+   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
 </Project>

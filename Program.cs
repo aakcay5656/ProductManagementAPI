@@ -9,21 +9,45 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Serilog Configuration
+
+
+
+foreach (var source in builder.Configuration.Sources)
+{
+    Console.WriteLine($"Config source: {source}");
+}
+
+// Manuel configuration read test
+try
+{
+    var config = new ConfigurationBuilder()
+        .SetBasePath(builder.Environment.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .Build();
+
+    var connStr = config.GetConnectionString("DefaultConnection");
+    Console.WriteLine($"Manual read connection: {connStr}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Manual config read error: {ex.Message}");
+}
+
+Console.WriteLine("==============================");
+
+
+
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
 
 builder.Host.UseSerilog();
 
-// Add services to the container
 builder.Services.AddControllers();
 
-// Layer Dependencies
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-// JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -42,7 +66,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-// Swagger Configuration
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -53,7 +76,6 @@ builder.Services.AddSwaggerGen(c =>
         Description = "A comprehensive API for managing products with authentication"
     });
 
-    // JWT Authorization in Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
@@ -79,7 +101,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// CORS (if needed)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
